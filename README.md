@@ -1,2 +1,2 @@
-# sUIper
+# SUIper
 A Swiper based UI
