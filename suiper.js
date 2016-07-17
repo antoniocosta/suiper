@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
 	function loadData(){
-		var url = 'http://localhost:8000/data.json';
+		var url = 'data.json';
 		$.ajax({
 			url: url,
 			dataType: 'json',
@@ -55,7 +55,6 @@ $(document).ready(function () {
 	function initColors(){
 
 		var colors = [];
-//		$("[data-hash]").each(function(n){
 		$(".swiper-slide-head").each(function(n){
 			colors[n] = rgbToHex($(this).css('backgroundColor'));
 			$(this).css('background-color', '');
@@ -88,8 +87,8 @@ $(document).ready(function () {
 			var swiperV = new Swiper(this, {
 				direction: 'vertical',
 				spaceBetween: 0,
-				keyboardControl:true,
-				mousewheelControl: false,
+				keyboardControl: true,
+				mousewheelControl: true,
 				resistanceRatio: 0 // disable resistance at bounds
 			});
 
@@ -111,8 +110,9 @@ $(document).ready(function () {
 	}
 
 	function initTextFill(){
+		var maxFontPixels = Math.round($( window ).width() / 8);
 		$('.swiper-slide-head').textfill({
-			maxFontPixels: 120,
+			maxFontPixels: maxFontPixels,
 			innerTag: "h1"
 		});
 	}
