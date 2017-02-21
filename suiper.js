@@ -89,7 +89,7 @@ $(document).ready(function () {
 				spaceBetween: 0,
 				keyboardControl: true,
 				mousewheelControl: true,
-				resistanceRatio: 0 // disable resistance at bounds
+				//resistanceRatio: 0 // disable resistance at bounds
 			});
 
 		});
