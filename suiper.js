@@ -70,15 +70,17 @@ $(document).ready(function () {
 			mousewheelControl: false,
 			hashnav: true,
 			grabCursor: true,
-			onInit(swiper){
-				$('body').css('background-color', '#' + rainbow.colourAt(swiper.progress*100) );
-			},
-			onTouchMove(swiper, event){
-				$('body').css('background-color', '#' + rainbow.colourAt(swiper.progress*100) );
-			},			
-			onTransitionStart(swiper){
-				$('body').stop(); // stop any running anims
-				$('body').animate({ backgroundColor: '#'+rainbow.colourAt(swiper.progress*100) }, swiper.speed);
+			on: {
+			    init: function(){ 
+			    	$('body').css('background-color', '#' + rainbow.colourAt(this.progress*100) ) 
+			    },
+			    touchMove: function(){ 
+			    	$('body').css('background-color', '#' + rainbow.colourAt(this.progress*100) ) 
+			    },
+			    transitionStart: function(){ 
+					$('body').stop(); // stop any running anims
+					$('body').animate({ backgroundColor: '#'+rainbow.colourAt(this.progress*100) }, this.speed);
+			    },
 			}
 		}); 
 
